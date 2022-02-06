@@ -1,4 +1,5 @@
 import path from 'path'
+import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import HtmlWebPackPlugin from 'html-webpack-plugin'
 
 export default {
@@ -7,7 +8,7 @@ export default {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: '[name].[hash].js',
+    filename: '[name].[chunkhash].js',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
@@ -32,6 +33,10 @@ export default {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin({
+      protectWebpackAssets: false,
+      cleanAfterEveryBuildPatterns: ['*.LICENSE.txt'],
+    }),
     new HtmlWebPackPlugin({
       template: './src/index.html',
     }),
