@@ -4,7 +4,7 @@ import HtmlWebPackPlugin from 'html-webpack-plugin'
 
 export default {
   entry: {
-    main: path.resolve(__dirname, 'src/App.tsx'),
+    main: path.resolve(__dirname, 'src/index.ts'),
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -38,7 +38,7 @@ export default {
       cleanAfterEveryBuildPatterns: ['*.LICENSE.txt'],
     }),
     new HtmlWebPackPlugin({
-      template: './src/index.html',
+      template: './public/index.html',
     }),
   ],
 }

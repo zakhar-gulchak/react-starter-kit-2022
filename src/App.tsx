@@ -1,7 +1,3 @@
-import { render } from 'react-dom'
-
-const App = (): JSX.Element => <div>Initial</div>
-
-render(<App />, document.getElementById('app'))
+const App = (): JSX.Element => <div data-testid="initial-div">Initial</div>
 
 export default App

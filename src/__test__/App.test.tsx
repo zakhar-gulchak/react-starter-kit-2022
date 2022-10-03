@@ -1,14 +1,11 @@
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import { render, screen } from '@testing-library/react'
 
 import App from '../App'
 
-jest.mock('react-dom')
-
 describe('App', () => {
-  it('should match snapshot', () => {
-    const wrapper = shallow(<App />)
+  it('should render correctly', () => {
+    render(<App />)
 
-    expect(toJson(wrapper)).toMatchSnapshot()
+    expect(screen.getByTestId('initial-div')).toHaveTextContent('Initial')
   })
 })
